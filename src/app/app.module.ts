@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
@@ -13,13 +14,18 @@ import { LandPageModule } from "./land-page/land-page.module";
 import { environment } from "@env/environment";
 
 import { AppComponent } from './app.component';
+import { SigninComponent } from './signin/signin.component';
+
+import { AuthService } from "./shared/auth.service";
 
 @NgModule({
   declarations: [
     AppComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
 
     ChatPageModule,
     LandPageModule,
@@ -29,7 +35,9 @@ import { AppComponent } from './app.component';
     AngularFireAuthModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
