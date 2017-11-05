@@ -5,6 +5,8 @@ import { LandPageComponent } from "./land-page/land-page.component";
 import { ChatPageComponent } from "./chat-page/chat-page.component"
 import { SigninComponent } from "./signin/signin.component";
 
+import { AuthGuard } from "./guard/auth.guard";
+
 const routes: Routes = [
   {
     path: '', redirectTo: 'chat-page', pathMatch: 'full'
@@ -13,7 +15,7 @@ const routes: Routes = [
     path: 'land-page', component: LandPageComponent
   },
   {
-    path: 'chat-page', component: ChatPageComponent
+    path: 'chat-page', component: ChatPageComponent, canActivate: [AuthGuard]
   },
   {
     path: 'login', component: SigninComponent

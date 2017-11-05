@@ -27,7 +27,6 @@ export class AuthService {
       })
       .subscribe(user => {
         this.user.next(user)
-        console.log(user)
       })
 
   }

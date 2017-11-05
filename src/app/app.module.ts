@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 
 import { AuthService } from "./shared/auth.service";
+import { AuthGuard } from "./guard/auth.guard";
 
 import { AppRoutingModule } from "./app-routing.module";
 
@@ -41,7 +42,7 @@ import { AppRoutingModule } from "./app-routing.module";
 
   ],
   providers: [
-    AuthService
+    AuthGuard, AuthService
   ],
   bootstrap: [AppComponent]
 })
