@@ -9,6 +9,10 @@ import { MessagesListComponent } from './messages-list/messages-list.component';
 
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 
+import { UserService } from "./shared/user.service";
+import { MessageService } from './shared/message.service';
+import { UserCardComponent } from './user-card/user-card.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,10 +23,15 @@ import { VirtualScrollModule } from 'angular2-virtual-scroll';
     ChatPageComponent,
     AppNavbarComponent,
     UsersListComponent,
-    MessagesListComponent
+    MessagesListComponent,
+    UserCardComponent,
   ],
   exports: [
     ChatPageComponent
+  ],
+  providers: [
+    MessageService,
+    UserService
   ]
 })
 export class ChatPageModule { }

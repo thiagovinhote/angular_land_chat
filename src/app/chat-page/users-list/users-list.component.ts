@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { AngularFireDatabase } from "angularfire2/database";
 import { Observable } from "rxjs/Observable";
+
+import { UserService } from "../shared/user.service";
+import { User } from "../shared/user.model";
 
 @Component({
   selector: 'users-list',
@@ -13,15 +14,15 @@ export class UsersListComponent implements OnInit {
   usersObservable: Observable<any[]>;
 
   constructor(
-    private database: AngularFireDatabase
+    private us: UserService
   ) { }
 
   ngOnInit() {
-    this.usersObservable = this.getUsers('/user')
+    this.getUsers()
   }
 
-  getUsers(listPath): Observable<any[]> {
-    return this.database.list(listPath).valueChanges();
+  getUsers() {
+    this.usersObservable = this.us.getAll()
   }
 
 }
