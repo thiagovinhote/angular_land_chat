@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
 import { ChatPageComponent } from "./chat-page.component";
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
@@ -17,6 +18,7 @@ import { UserCardComponent } from './user-card/user-card.component';
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     VirtualScrollModule
   ],
   declarations: [

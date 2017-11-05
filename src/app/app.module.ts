@@ -18,6 +18,8 @@ import { SigninComponent } from './signin/signin.component';
 
 import { AuthService } from "./shared/auth.service";
 
+import { AppRoutingModule } from "./app-routing.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,10 +32,13 @@ import { AuthService } from "./shared/auth.service";
     ChatPageModule,
     LandPageModule,
 
+    AppRoutingModule,
+
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+
   ],
   providers: [
     AuthService
