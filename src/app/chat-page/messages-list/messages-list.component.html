@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header">
+    Conversa com todos
+  </div>
+  <div class="card-body">
+    <virtual-scroll [items]="messages" (update)="scrollList = $event">
+      <div class="media mb-3" *ngFor="let message of messages">
+        <img class="mr-3 image-profile-message rounded-circle" *ngIf="message.user" [src]="message.user.imageUrl" alt="">
+        <div class="media-body">
+          <h5 *ngIf="message.user" class="card-subtitle mb-2"><small class="text-muted">{{message.user.name}}</small></h5>
+          <h6 class="mt-0">{{message.text}}</h6>
+          <small class="text-muted">{{message.date}}</small>
+          <div class="">
+            <a href="#" (click)="remove(message.$key)" class="badge badge-danger">Deletar</a>
+          </div>
+        </div>
+      </div>
+    </virtual-scroll>
+  </div>
+  <div class="card-footer text-muted">
+    <form #formMessage="ngForm" (ngSubmit)="sendMessage(formMessage)">
+      <div class="input-group">
+        <input [(ngModel)]="message" name="message" type="text" class="form-control" placeholder="Digite sua mensagem" required>
+        <span class="input-group-btn">
+          <button class="btn btn-primary" [disabled]="!formMessage.valid" type="submit">Enviar</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
