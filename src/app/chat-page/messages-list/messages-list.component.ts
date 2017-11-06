@@ -5,6 +5,9 @@ import { Subscription } from "rxjs/Subscription";
 import { MessageService } from "../shared/message.service";
 import { Message } from "../shared/message.model";
 
+import { AuthService } from "../../shared/auth.service";
+import { User } from "../shared/user.model";
+
 @Component({
   selector: 'app-messages-list',
   templateUrl: './messages-list.component.html',
@@ -16,23 +19,33 @@ export class MessagesListComponent implements OnInit, OnDestroy {
   messageSubscription: Subscription
   message: any = ''
 
+  user: User = null
+  userSubscription: Subscription;
+
   constructor(
-    private ms: MessageService
+    private ms: MessageService,
+    private auth: AuthService
   ) { }
 
   ngOnInit() {
-    this.getMessages()
+    this.userSubscription = this.auth.user.subscribe(user => {
+      if(user) {
+        this.user = user
+        this.getMessages()
+      }
+    })
   }
 
   ngOnDestroy() {
     this.messageSubscription.unsubscribe()
+    this.userSubscription.unsubscribe()
   }
 
   getMessages() {
     this.messageSubscription = this.ms.getAll((message: Message, type) => {
       switch(type) {
         case 'child_added':
-            this.messages.push(message)
+            this.messages.splice(0, 0, message)
         break
         case 'child_removed':
           this.messages = this.messages.filter(m => m.$key != message.$key)
@@ -43,7 +56,7 @@ export class MessagesListComponent implements OnInit, OnDestroy {
 
   sendMessage(form: NgForm) {
     const data: Message = {
-      idUser: '1Gz1htCDepZmYQGowPcOLFEzhT73',
+      idUser: this.user.$key,
       text: form.value.message,
       date: new Date().getTime(),
     }

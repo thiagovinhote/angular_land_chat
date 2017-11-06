@@ -13,6 +13,9 @@ import { VirtualScrollModule } from 'angular2-virtual-scroll';
 import { UserService } from "./shared/user.service";
 import { MessageService } from './shared/message.service';
 import { UserCardComponent } from './user-card/user-card.component';
+import { MessageCardComponent } from './message-card/message-card.component';
+
+import { DateExpressionPipe } from '@app/pipes/date-expression.pipe';
 
 @NgModule({
   imports: [
@@ -27,6 +30,9 @@ import { UserCardComponent } from './user-card/user-card.component';
     UsersListComponent,
     MessagesListComponent,
     UserCardComponent,
+    MessageCardComponent,
+
+    DateExpressionPipe
   ],
   exports: [
     ChatPageComponent

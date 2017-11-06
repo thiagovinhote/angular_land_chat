@@ -1,0 +1,12 @@
+<div class="media mb-3">
+  <img class="mr-3 image-profile-message rounded-circle" *ngIf="message.user && !message.isCurrent" [src]="message.user.imageUrl" alt="">
+  <div class="media-body" [ngClass]="{'text-right': message.isCurrent}">
+    <h5 *ngIf="message.user" class="card-subtitle mb-2"><small class="text-muted">{{message.user.name}}</small></h5>
+    <h6 class="mt-0">{{message.text}}</h6>
+    <small class="text-muted">{{message.date | dateExpression}}</small>
+    <div class="">
+      <a routerLink (click)="remove(message.$key)" class="badge badge-danger">Deletar</a>
+    </div>
+  </div>
+  <img class="ml-3 image-profile-message rounded-circle" *ngIf="message.user && message.isCurrent" [src]="message.user.imageUrl" alt="">
+</div>

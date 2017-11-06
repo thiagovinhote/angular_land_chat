@@ -26,6 +26,9 @@ export class AuthService {
         return Observable.of(null)
       })
       .subscribe(user => {
+        if(user) {
+          user.$key = this.auth.auth.currentUser.uid
+        }
         this.user.next(user)
       })
 

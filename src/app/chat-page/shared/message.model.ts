@@ -1,5 +1,7 @@
 export class Message {
 
+  public isCurrent?: boolean
+
   constructor(
     public text: string,
     public idUser: string,
