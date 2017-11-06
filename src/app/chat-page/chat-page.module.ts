@@ -5,7 +5,6 @@ import { RouterModule } from "@angular/router";
 
 import { ChatPageComponent } from "./chat-page.component";
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
-import { UsersListComponent } from './users-list/users-list.component';
 import { MessagesListComponent } from './messages-list/messages-list.component';
 
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
@@ -17,22 +16,24 @@ import { MessageCardComponent } from './message-card/message-card.component';
 
 import { DateExpressionPipe } from '@app/pipes/date-expression.pipe';
 
+import { ChatPageRoutingModule, COMPONENTS } from "./chat-page.routing.module";
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule,
-    VirtualScrollModule
+    VirtualScrollModule,
+    ChatPageRoutingModule
   ],
   declarations: [
     ChatPageComponent,
     AppNavbarComponent,
-    UsersListComponent,
     MessagesListComponent,
     UserCardComponent,
     MessageCardComponent,
 
-    DateExpressionPipe
+    DateExpressionPipe,
+    COMPONENTS
   ],
   exports: [
     ChatPageComponent

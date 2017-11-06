@@ -15,7 +15,10 @@ const routes: Routes = [
     path: 'land-page', component: LandPageComponent
   },
   {
-    path: 'chat-page', component: ChatPageComponent, canActivate: [AuthGuard]
+    path: 'chat-page',
+    component: ChatPageComponent,
+    loadChildren: 'app/chat-page/chat-page.module#ChatPageModule',
+    canActivate: [AuthGuard]
   },
   {
     path: 'login', component: SigninComponent
