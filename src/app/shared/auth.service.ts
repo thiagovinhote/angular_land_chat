@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app'
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
@@ -32,6 +33,14 @@ export class AuthService {
         this.user.next(user)
       })
 
+  }
+
+  loginFacebook() {
+    return this.auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+  }
+
+  loginGoogle() {
+    return this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
   }
 
   login(email: string, password: string) {

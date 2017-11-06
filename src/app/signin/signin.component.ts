@@ -4,6 +4,9 @@ import { Router } from "@angular/router";
 import { Subscription } from "rxjs/Subscription";
 
 import { AuthService } from "../shared/auth.service";
+import { UserService } from "../chat-page/shared/user.service";
+
+import { User } from "../chat-page/shared/user.model";
 
 @Component({
   selector: 'app-signin',
@@ -19,8 +22,9 @@ export class SigninComponent implements OnInit, OnDestroy {
 
   constructor(
     private as: AuthService,
+    private us: UserService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
 
@@ -36,13 +40,19 @@ export class SigninComponent implements OnInit, OnDestroy {
     this.userSubscription.unsubscribe()
   }
 
+  async loginFacebook() {
+    const auth = await this.as.loginFacebook()
+    this.us.createFire(auth)
+  }
+
+  async loginGoogle() {
+    const auth = await this.as.loginGoogle()
+    this.us.createFire(auth)
+  }
+
   async signin(form: NgForm) {
     const { email, password } = form.value
     await this.as.login(email, password)
-  }
-
-  signOut() {
-    this.as.singOut()
   }
 
 }

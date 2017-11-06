@@ -1,6 +1,4 @@
-<div class="container-fluid">
-  <user-card
-    *ngFor="let user of usersObservable | async"
-    [user]="user"
-    ></user-card>
-</div>
+<user-card
+  *ngFor="let user of usersObservable | async"
+  [user]="user"
+  ></user-card>
