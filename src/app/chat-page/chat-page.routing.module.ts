@@ -2,10 +2,13 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 import { UsersListComponent } from "./users-list/users-list.component";
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const routes: Routes = [
   {
-    path: '', component: UsersListComponent
+    path: '', component: UsersListComponent,
+  }, {
+    path: 'user-detail/:uid', component: UserDetailComponent
   }
 ]
 
@@ -15,4 +18,4 @@ const routes: Routes = [
 })
 export class ChatPageRoutingModule { }
 
-export const COMPONENTS = [UsersListComponent]
+export const COMPONENTS = [UsersListComponent, UserDetailComponent]

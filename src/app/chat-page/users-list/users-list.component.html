@@ -1,4 +1,4 @@
-<user-card routerLink="/land-page"
+<user-card [routerLink]="['/chat-page/user-detail', user.$key]"
   *ngFor="let user of users"
   [user]="user"
   ></user-card>

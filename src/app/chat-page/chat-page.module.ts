@@ -33,7 +33,7 @@ import { ChatPageRoutingModule, COMPONENTS } from "./chat-page.routing.module";
     MessageCardComponent,
 
     DateExpressionPipe,
-    COMPONENTS
+    COMPONENTS,
   ],
   exports: [
     ChatPageComponent
