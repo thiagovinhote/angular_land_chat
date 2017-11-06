@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs/Observable";
+import { Subscription } from "rxjs/Subscription";
 
 import { UserService } from "../shared/user.service";
 import { User } from "../shared/user.model";
@@ -11,7 +12,8 @@ import { User } from "../shared/user.model";
 })
 export class UsersListComponent implements OnInit {
 
-  usersObservable: Observable<any[]>;
+  users: User[] = []
+  usersSubscription: Subscription
 
   constructor(
     private us: UserService
@@ -22,7 +24,14 @@ export class UsersListComponent implements OnInit {
   }
 
   getUsers() {
-    this.usersObservable = this.us.getAll()
+    this.usersSubscription = this.us.getAll()
+      .subscribe((u)=> {
+        if (u.type == 'child_added'){
+          this.users.push(u.user)
+        } else {
+          this.users = this.users.filter(user => user.$key != u.user.$key)
+        }
+      })
   }
 
 }

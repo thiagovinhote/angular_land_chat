@@ -21,8 +21,13 @@ export class UserService {
     })
   }
 
-  getAll(): Observable<User[]> {
-    return this.database.list(UserService.path).valueChanges()
+  getAll(): Observable<{user: User, type: string}> {
+    return this.database.list(UserService.path).stateChanges(['child_added', 'child_removed'])
+      .map(s => {
+        var u: User = s.payload.val()
+        u.$key = s.key
+        return {user: u, type: s.type}
+      })
   }
 
   create(id: string, user: User) {
@@ -38,7 +43,7 @@ export class UserService {
         email: email,
         name: name,
         imageUrl: photoURL,
-        roles: {reader: true, author: true, admin: false}
+        roles: {reader: true, admin: false}
       }
       this.create(uid, newUser)
     }

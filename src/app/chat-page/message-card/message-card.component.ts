@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import * as _ from 'lodash'
 
 import { User } from "../shared/user.model";
 import { Message } from "../shared/message.model";
@@ -10,6 +11,8 @@ import { Message } from "../shared/message.model";
 })
 export class MessageCardComponent implements OnInit {
 
+  private userRoles: Array<string>
+
   @Input()
   message: Message = null
 
@@ -19,11 +22,13 @@ export class MessageCardComponent implements OnInit {
   @Output()
   delete: EventEmitter<string> = new EventEmitter()
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     if (this.message)
       this.message.isCurrent = this.isUserLogged(this.message.idUser)
+
+    this.userRoles = _.keys(_.get(this.message.user, 'roles'))
   }
 
   isUserLogged(idUser: string): boolean {
@@ -32,6 +37,11 @@ export class MessageCardComponent implements OnInit {
 
   remove(key: string) {
     this.delete.emit(key)
+  }
+
+  get canDelete(): boolean {
+    const pode = ['admin']
+    return !_.isEmpty(_.intersection(pode, this.userRoles))
   }
 
 }

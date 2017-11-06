@@ -1,4 +1,4 @@
-<user-card
-  *ngFor="let user of usersObservable | async"
+<user-card routerLink="/land-page"
+  *ngFor="let user of users"
   [user]="user"
   ></user-card>

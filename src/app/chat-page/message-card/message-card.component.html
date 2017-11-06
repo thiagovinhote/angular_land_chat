@@ -5,7 +5,7 @@
     <h6 class="mt-0">{{message.text}}</h6>
     <small class="text-muted">{{message.date | dateExpression}}</small>
     <div class="">
-      <a routerLink (click)="remove(message.$key)" class="badge badge-danger">Deletar</a>
+      <a routerLink *ngIf="canDelete || message.isCurrent" (click)="remove(message.$key)" class="badge badge-danger">Excluir</a>
     </div>
   </div>
   <img class="ml-3 image-profile-message rounded-circle" *ngIf="message.user && message.isCurrent" [src]="message.user.imageUrl" alt="">
