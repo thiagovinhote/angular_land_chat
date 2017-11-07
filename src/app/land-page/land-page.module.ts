@@ -2,12 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from "@angular/router";
 
-import { LandPageComponent } from "./land-page.component";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
+import { LandPageRoutingModule } from './land-page.routing.module';
+import { LandPageComponent } from './land-page.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    LandPageRoutingModule,
+    NgbModule.forRoot(),
   ],
   declarations: [
     LandPageComponent

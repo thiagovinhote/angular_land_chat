@@ -28,7 +28,7 @@ export class MessageCardComponent implements OnInit {
     if (this.message)
       this.message.isCurrent = this.isUserLogged(this.message.idUser)
 
-    this.userRoles = _.keys(_.get(this.message.user, 'roles'))
+    this.userRoles = _.keys(_.get(this.userCurrent, 'roles'))
   }
 
   isUserLogged(idUser: string): boolean {
@@ -40,7 +40,7 @@ export class MessageCardComponent implements OnInit {
   }
 
   get canDelete(): boolean {
-    const pode = ['admin']
+    const pode = ["admin"]
     return !_.isEmpty(_.intersection(pode, this.userRoles))
   }
 

@@ -9,19 +9,24 @@ import { AuthGuard } from "./guard/auth.guard";
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'chat-page', pathMatch: 'full'
-  },
-  {
-    path: 'land-page', component: LandPageComponent
+    path: 'land-page', 
+    component: LandPageComponent,
+    loadChildren: 'app/land-page/land-page.module#LandPageModule'
   },
   {
     path: 'chat-page',
     component: ChatPageComponent,
-    loadChildren: 'app/chat-page/chat-page.module#ChatPageModule',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    loadChildren: 'app/chat-page/chat-page.module#ChatPageModule'
   },
   {
     path: 'login', component: SigninComponent
+  },
+  {
+    path: '', redirectTo: '/land-page', pathMatch: 'full'
+  },
+  {
+    path: '**', redirectTo: '/'
   }
 ]
 

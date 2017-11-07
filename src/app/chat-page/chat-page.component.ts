@@ -23,9 +23,11 @@ export class ChatPageComponent implements OnInit {
       if (user) {
         this.user = user
       } else {
-        this.router.navigate(['/land-page'])
+        this.router.navigate(['/login'])
       }
     })
+
+    this.router.navigate(['/chat-page/user-list'])
   }
 
   signOut() {

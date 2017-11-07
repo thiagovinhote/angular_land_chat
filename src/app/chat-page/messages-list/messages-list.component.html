@@ -3,7 +3,7 @@
     Conversa com todos
   </div>
   <div class="card-body">
-    <virtual-scroll [items]="messages" (update)="scrollList = $event">
+    <virtual-scroll [items]="messages">
       <message-card (delete)="remove($event)" [userCurrent]="user" *ngFor="let message of messages" [message]="message"></message-card>
     </virtual-scroll>
   </div>

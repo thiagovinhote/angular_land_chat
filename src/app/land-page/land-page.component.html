@@ -1,81 +1,82 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/chat-page">Chat<span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
+<a id="topo"></a>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">CHAT & TAL</h1>
+    <p class="lead text-muted">
+      Todos já estão utilizando esse CHAT.
+    </p>
+    <p>Faça parte dessa comunidade também!!</p>
+    <p>
+      <a [routerLink]="['/login']" class="btn btn-success">Acesar</a>
+    </p>
   </div>
-</nav>
+</section>
 
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Album example</h1>
-      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
-      <p>
-        <a href="#" class="btn btn-primary">Main call to action</a>
-        <a href="#" class="btn btn-secondary">Secondary action</a>
-      </p>
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <img width="100%" src="https://lorempixel.com/900/500?r=1" alt="Random first slide">
+    <div class="carousel-caption">
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
     </div>
-  </section>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img width="100%" src="https://lorempixel.com/900/500?r=2" alt="Random second slide">
+    <div class="carousel-caption">
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img width="100%" src="https://lorempixel.com/900/500?r=3" alt="Random third slide">
+    <div class="carousel-caption">
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
 
-  <div class="album text-muted">
-    <div class="container">
-
-      <div class="row">
-        <div class="card">
-          <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-        <div class="card">
-          <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-        <div class="card">
-          <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-
-        <div class="card">
-          <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-        <div class="card">
-          <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-        <div class="card">
-          <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-
-        <div class="card">
-          <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-        <div class="card">
-          <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-        <div class="card">
-          <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div class="album text-muted">
+  <div class="container">
+    <div class="row">
+      <div class="card">
+        <img class="card-img-top" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">Nome do usuário</h4>
+          <p class="card-text">emailpessoal@gmail.com</p>
         </div>
       </div>
-
+      <div class="card">
+        <img class="card-img-top" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">Nome do usuário</h4>
+          <p class="card-text">emailpessoal@gmail.com</p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">Nome do usuário</h4>
+          <p class="card-text">emailpessoal@gmail.com</p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">Nome do usuário</h4>
+          <p class="card-text">emailpessoal@gmail.com</p>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 
 <footer class="text-muted">
   <div class="container">
     <p class="float-right">
-      <a href="#">Back to top</a>
+      <a href="land-page#topo">Voltar ao topo</a>
     </p>
-    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
-  </div>
-</footer>
+    <p>Land Page de exemplo &copy; Vinhote, para prática do framework Angular!</p>
+    <p>Quer saber quem é? <a target="_blank" href="https://www.linkedin.com/in/thiago-vinhote-14698111a/">Veja o LinkedIn</a>
+    </div>
+  </footer>

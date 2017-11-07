@@ -4,7 +4,6 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 
 import { ChatPageComponent } from "./chat-page.component";
-import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { MessagesListComponent } from './messages-list/messages-list.component';
 
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
@@ -27,7 +26,6 @@ import { ChatPageRoutingModule, COMPONENTS } from "./chat-page.routing.module";
   ],
   declarations: [
     ChatPageComponent,
-    AppNavbarComponent,
     MessagesListComponent,
     UserCardComponent,
     MessageCardComponent,
