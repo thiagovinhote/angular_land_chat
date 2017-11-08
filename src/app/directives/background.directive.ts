@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer } from '@angular/core';
+import { Directive, ElementRef, Renderer, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appBackground]'
@@ -10,8 +10,19 @@ export class BackgroundDirective {
     private renderer: Renderer
   ) {
 
-    console.log(this.elementRef)
+  }
 
+  @HostListener('mouseenter') onMouseEnter() {
+    this.hover(true)
+  }
+
+  @HostListener('mouseleave') onMouserLeave() {
+    this.hover(false)
+  }
+
+  private hover(a: boolean) {
+    this.renderer.setElementClass(this.elementRef.nativeElement, 'border-info', a)
+    this.renderer.setElementClass(this.elementRef.nativeElement, 'border-danger', !a)
   }
 
 }

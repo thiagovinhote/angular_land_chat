@@ -22,14 +22,12 @@ import { AuthService } from "./shared/auth.service";
 import { AuthGuard } from "./guard/auth.guard";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { BackgroundDirective } from './directives/background.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     AppNavbarComponent,
-    BackgroundDirective,
   ],
   imports: [
     BrowserModule,

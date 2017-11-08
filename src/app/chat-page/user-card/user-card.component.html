@@ -1,4 +1,4 @@
-<div class="card mb-2" *ngIf="user">
+<div appBackground class="card mb-2" *ngIf="user">
   <div class="card-header" [hidden]="!header">
     <span class="badge" [ngClass]="{'badge-info': isAdmin, 'badge-danger': !isAdmin}">ADMIN</span>
     <span class="badge" [ngClass]="{'badge-info': isReader, 'badge-danger': !isReader}">READER</span>
