@@ -1,5 +1,10 @@
 # ChatFA
 
+Aplicação web de um chat utilizando o firebase.
+Utilizando a autenticação do firebase com o Google e o Facebook.
+Com o realtime database, utilizando as leituras e persistências.
+Com estilização das páginas utilizando o Bootstrap.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
 ##Requirements
